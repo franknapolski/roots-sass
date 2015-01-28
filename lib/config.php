@@ -54,7 +54,8 @@ function roots_display_sidebar() {
      * Any of these page templates that return true won't show the sidebar
      */
     array(
-      'template-custom.php'
+      'template-full-width.php',
+      'template-home.php'
     )
   );
 

@@ -5,13 +5,36 @@ $grid-columns:          12;
 $main-sm-columns:       $grid-columns;
 $sidebar-sm-columns:    4;
 
-
-
-// Brand colors
+// Brand Fonts
 // -------------------------
+$font-family-sans-serif:  "Questrial", Helvetica, Arial, sans-serif !default;
+$font-size-base:										16px;
+$line-height-base:								1.6;
 
-$brand-primary:         #27ae60;
+// Brand Colors
+// -------------------------
+$brand-primary:         #F49120;
+$gray-dark:             #58595B;
+$headings-color: 							$brand-primary;
 
+$input-bg:														lighten($gray-dark, 55.5%);
+$input-border-focus:				$brand-primary;
+
+// Navbar
+// -------------------------
+$navbar-height:									60px;
+$navbar-default-color:		#fff;
+$navbar-default-bg:					#F49120;
+$navbar-font-size:						floor(($font-size-base * 1.2));
+$nav-link-padding:						10px 20px;
+
+$navbar-default-link-color:                #fff !default;
+$navbar-default-link-hover-color:          $gray-dark !default;
+$navbar-default-link-hover-bg:             transparent !default;
+$navbar-default-link-active-color:         $gray-dark !default;
+$navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
+$navbar-default-link-disabled-color:       #ccc !default;
+$navbar-default-link-disabled-bg:          transparent !default;
 
 // Glyphicons path
 // -------------------------

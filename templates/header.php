@@ -1,4 +1,4 @@
-<header class="banner navbar navbar-default navbar-static-top" role="banner">
+<header class="banner navbar navbar-default navbar-static" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
@@ -7,9 +7,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="<?php echo esc_url(home_url('/')); ?>"><?php bloginfo('name'); ?></a>
     </div>
-
+   <a class="navbar-brand" href="#home"><img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo-sm.svg" onerror="this.onerror=null; this.src='<?php echo get_template_directory_uri(); ?>/assets/img/logo-sm.png'" alt="<?php bloginfo('name'); ?>" title="<?php bloginfo('name'); ?>"></a>
     <nav class="collapse navbar-collapse" role="navigation">
       <?php
         if (has_nav_menu('primary_navigation')) :
@@ -17,5 +16,6 @@
         endif;
       ?>
     </nav>
+
   </div>
 </header>

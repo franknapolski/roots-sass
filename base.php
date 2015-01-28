@@ -12,9 +12,12 @@
     get_template_part('templates/header');
   ?>
 
-  <div class="wrap container" role="document">
-    <div class="content row">
-      <main class="main" role="main">
+  <?php include roots_template_path(); ?>
+
+<?php /*
+  <div class="wrap" role="document">
+    <div class="content">
+      <main class="" role="main">
         <?php include roots_template_path(); ?>
       </main><!-- /.main -->
       <?php if (roots_display_sidebar()) : ?>
@@ -24,6 +27,7 @@
       <?php endif; ?>
     </div><!-- /.content -->
   </div><!-- /.wrap -->
+*/ ?>
 
   <?php get_template_part('templates/footer'); ?>
 

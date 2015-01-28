@@ -6,7 +6,7 @@
  * replace the dash with an underscore when adding it to the object below.
  *
  * .noConflict()
- * The routing is enclosed within an anonymous function so that you can 
+ * The routing is enclosed within an anonymous function so that you can
  * always reference jQuery with $, even when in .noConflict() mode.
  *
  * Google CDN, Latest jQuery
@@ -16,7 +16,7 @@
 
 (function($) {
 
-// Use this variable to set up the common and page specific functions. If you 
+// Use this variable to set up the common and page specific functions. If you
 // rename this variable, you will also need to rename the namespace below.
 var Roots = {
   // All pages
@@ -58,6 +58,54 @@ var UTIL = {
   }
 };
 
+var $menu = $('.navbar');
+var menuOffsetY = $menu.offset().top;
+
+$(window).resize(function(){
+  if ($menu.hasClass('navbar-static')){
+    menuOffsetY = $menu.offset().top;
+  }
+});
+
+$(window).ready(function(){
+    // if ($(window).width() <= 768) {
+    //   $menu.addClass('navbar-fixed-top').removeClass('navbar-static');
+    //   console.log("less");
+    // }
+});
+
+function scroll() {
+    if ($(window).width() >= 768 && $(window).scrollTop() >= menuOffsetY) {
+      $menu.removeClass('navbar-static').addClass('navbar-fixed-top');
+    }
+    else {
+      $menu.removeClass('navbar-fixed-top').addClass('navbar-static');
+    }
+}
+
+document.onscroll = scroll;
+
+$('#home .btn, .navbar a').bind('click', function(event) {
+    var $anchor = $(this);
+    console.log($(this));
+    $('html, body').stop().animate({
+      scrollTop: $($anchor.attr('href')).offset().top-59
+    }, 1500, 'easeInOutExpo');
+    event.preventDefault();
+});
+
+$('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+});
+
+
+$('.carousel').carousel({
+  interval: 5000,
+  pause: "false"
+});
+
 $(document).ready(UTIL.loadEvents);
 
 })(jQuery); // Fully reference jQuery after this point.
+
+

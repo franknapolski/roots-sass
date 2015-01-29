@@ -16,6 +16,7 @@ $line-height-base:								1.6;
 $brand-primary:         #F49120;
 $gray-dark:             #58595B;
 $headings-color: 							$brand-primary;
+$brand-light:											lighten($brand-primary, 25%);
 
 $input-bg:														lighten($gray-dark, 55.5%);
 $input-border-focus:				$brand-primary;
@@ -25,8 +26,8 @@ $input-border-focus:				$brand-primary;
 $navbar-height:									60px;
 $navbar-default-color:		#fff;
 $navbar-default-bg:					#F49120;
-$navbar-font-size:						floor(($font-size-base * 1.2));
-$nav-link-padding:						10px 20px;
+$navbar-font-size:						floor(($font-size-base * 1.1));
+
 
 $navbar-default-link-color:                #fff !default;
 $navbar-default-link-hover-color:          $gray-dark !default;
@@ -35,6 +36,11 @@ $navbar-default-link-active-color:         $gray-dark !default;
 $navbar-default-link-active-bg:            darken($navbar-default-bg, 6.5%) !default;
 $navbar-default-link-disabled-color:       #ccc !default;
 $navbar-default-link-disabled-bg:          transparent !default;
+
+
+$navbar-padding-horizontal:        0;
+$nav-link-padding:						17.5px 17.5px;
+
 
 // Glyphicons path
 // -------------------------

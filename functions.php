@@ -21,6 +21,7 @@ $roots_includes = array(
   'lib/gallery.php',         // Custom [gallery] modifications
   'lib/comments.php',        // Custom comments modifications
   'lib/scripts.php',         // Scripts and stylesheets
+  'lib/custom.php',          // Custom Post Types
   'lib/extras.php',          // Custom functions
 );
 
@@ -32,3 +33,16 @@ foreach ($roots_includes as $file) {
   require_once $filepath;
 }
 unset($file, $filepath);
+
+
+// Bug testing only. Not to be used on a production site!!
+add_action('wp_footer', 'roots_wrap_info');
+
+function roots_wrap_info() {
+  $format = '<h6>The %s template being used is: %s</h6>';
+  $main   = Roots_Wrapping::$main_template;
+  global $template;
+
+  printf($format, 'Main', $main);
+  printf($format, 'Base', $template);
+}

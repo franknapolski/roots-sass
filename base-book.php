@@ -14,6 +14,9 @@
   <div>THIS IS THE BOOK BASE
   <?php if (is_singular('book')): echo "BOOK BOOK"; else: echo "woekwoek"; endif; ?>
   </div>
+
+
+
   <div class="wrap container" role="document">
     <div class="content row">
       <main class="main" role="main">

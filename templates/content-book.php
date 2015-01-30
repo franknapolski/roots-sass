@@ -6,7 +6,14 @@
       <?php get_template_part('templates/entry-meta'); ?>
     </header>
     <div class="entry-content">
+      <?php the_field('author'); ?>
+      <?php the_field('publisher'); ?>
+      <?php the_field('copyright_date'); ?>
+      <?php the_field('cover'); ?>
+      <?php the_field('link'); ?>
+
       <?php the_content(); ?>
+
     </div>
     <footer>
       <?php wp_link_pages(array('before' => '<nav class="page-nav"><p>' . __('Pages:', 'roots'), 'after' => '</p></nav>')); ?>

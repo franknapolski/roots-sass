@@ -34,58 +34,92 @@ var Roots = {
     init: function() {
       // JavaScript to be fired on the home page
 
-      //This a page anchor link?
+      //Does URL contain hash
       if (window.location.hash) {
-        //Then, slow your roll son, load then scroll
+        //Pause
         setTimeout(function() {
           $('html, body').scrollTop(0).show();
           $('html, body').animate({
-            //how about a touch of offset, cause I'm rockin' a fixed nav
+            //Scroll to hash
             scrollTop: $(window.location.hash).offset().top-59
           }, 1500, 'easeInOutExpo');
           console.log($(window.location.hash).offset().top-59);
         }, 2);
       }
 
-      $(window).resize(function(){
-      if ($menu.hasClass('navbar-static')){
-          menuOffsetY = $menu.offset().top;
+      var small = false; //Is window mobile / desktop
+      var homeHeight = $('#home').outerHeight()-60; //Get #home section height
+
+      //Function to check if window is less than 768px wide
+      function isWindowSmall(winWidth) {
+        if (winWidth <= 767) {
+          $('.navbar').addClass('navbar-fixed-top').removeClass('navbar-static');
+          return true;
+        }
+        else if (winWidth >= 768 && $(window).scrollTop() < homeHeight ) {
+          $('.navbar').removeClass('navbar-fixed-top').addClass('navbar-static');
+          return false;
+        }
+        else {
+          return false;
+        }
+      }
+      $(window).ready(function(){
+        small = isWindowSmall($(window).width()); //Init
+        console.log(small);
+        if ( $(this).scrollTop() >= homeHeight ) {
+          $('.navbar').addClass('navbar-fixed-top').removeClass('navbar-static');
         }
       });
 
-      $(window).ready(function(){
-          // if ($(window).width() <= 768) {
-          //   $menu.addClass('navbar-fixed-top').removeClass('navbar-static');
-          //   console.log("less");
-          // }
+      //On resize, check isWindowSmall
+      $(window).resize(function(){
+        small = isWindowSmall($(this).width());
       });
 
-      function scroll() {
-          if ($(window).width() >= 768 && $(window).scrollTop() >= menuOffsetY) {
-            $menu.removeClass('navbar-static').addClass('navbar-fixed-top');
+      //Affix navbar, or don't if window is small
+      $('.navbar').affix({
+          offset: {
+              top: homeHeight
           }
-          else {
-            $menu.removeClass('navbar-fixed-top').addClass('navbar-static');
+      })
+      .on('affix.bs.affix', function(){
+          if (!small) {
+            $(this).addClass('navbar-fixed-top').removeClass('navbar-static');
           }
-      }
-      document.onscroll = scroll;
+      })
+      .on('affix-top.bs.affix', function() {
+          if (!small) {
+            $(this).removeClass('navbar-fixed-top').addClass('navbar-static');
+          }
+      });
+
+
+      // function scroll() {
+      //     if ($(window).scrollTop() <= menuOffsetY) {
+      //       $menu.removeClass('navbar-fixed-top').addClass('navbar-static');
+      //     }
+      //     else {
+      //       $menu.removeClass('navbar-static').addClass('navbar-fixed-top');
+      //     }
+      // }
+      // document.onscroll = scroll;
 
       $('#home .btn, .navbar a').bind('click', function(event) {
           var $anchor = $(this);
-          console.log($(this));
           $('html, body').stop().animate({
             scrollTop: $($anchor.attr('href')).offset().top-59
           }, 1500, 'easeInOutExpo');
           event.preventDefault();
       });
 
-      $('.navbar-collapse ul li a').click(function() {
-          $('.navbar-toggle:visible').click();
+      $('.navbar-collapse ul li a, .navbar-brand').click(function() {
+          if ( $('.navbar-collapse').hasClass('in') ){
+            $('.navbar-toggle:visible').click();
+          }
       });
 
-      $('.carousel-inner .fill').load(function(){
-        $('.carousel').fadeIn();
-      });
+
       $('.carousel').carousel({
         interval: 5000,
         pause: "false"
@@ -96,18 +130,30 @@ var Roots = {
   blog: {
     init: function() {
       // JavaScript to be fired on the blog
-
+      var root = window.location.origin;
+      console.log(root);
       $('.navbar-nav a').each(function(){
         var href = $(this).attr('href');
-        $(this).attr('href','../'+href);
+        if ($(this).parent().hasClass('active')) {
+          $(this).attr('href',href);
+        }
+        else {
+          $(this).attr('href',root+'/elab-wp/'+href);
+        }
+
       });
-      $('.navbar-nav .active a').attr('href','.');
+      // $('.navbar-nav .active a').attr('href','.');
+      // $('.navbar-nav .active')
       $('.navbar-brand').attr('href','../');
     }
   }
 };
 
 Roots.single = {
+    init: Roots.blog.init
+};
+
+Roots.archive = {
     init: Roots.blog.init
 };
 

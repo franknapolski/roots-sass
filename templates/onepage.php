@@ -15,11 +15,13 @@
   );
   $pages = get_pages($args);
   //start loop
+
   foreach ($pages as $page_data) {
       $content = apply_filters('the_content', $page_data->post_content);
       $title = $page_data->post_title;
       $slug = $page_data->post_name;
   ?>
+
   <?php if ($slug == 'home'): ?>
   <section id='<?php echo "$slug" ?>' class="container">
     <div class="intro">
@@ -33,26 +35,28 @@
       </div>
     </div>
   </section>
-  <div id="home-carousel" class="carousel slide">
+
+  <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
     <div class="carousel-inner">
-        <div class="item active">
-            <div class="fill" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-2.jpg');"></div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-1.jpg');"></div>
-        </div>
-        <div class="item">
-            <div class="fill" style="background-image:url('<?php echo get_template_directory_uri(); ?>/assets/img/bg-3.jpg');"></div>
-        </div>
+      <div class="active item"></div>
+      <div class="item"></div>
+      <div class="item"></div>
     </div>
   </div>
+
+
+  <div class="border"></div>
   <?php elseif ($slug == 'blog'): ?>
+
   <?php else: ?>
-  <section id='<?php echo "$slug" ?>' class="container">
-      <a name='<?php echo "$slug" ?>'></a>
-      <h2><?php echo "$title" ?></h2>
-      <?php echo "$content" ?>
+
+  <section id='<?php echo "$slug" ?>'>
+      <div class="container">
+        <a name='<?php echo "$slug" ?>'></a>
+        <h2><?php echo "$title" ?></h2>
+        <?php echo "$content" ?>
+      </div>
   </section>
+
   <?php endif ?>
   <?php } ?>
-  <?php get_template_part('templates/page', 'footer'); ?>

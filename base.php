@@ -10,8 +10,14 @@
     do_action('get_header');
     get_template_part('templates/header');
   ?>
+<!--   <div class="wrap" role="document">
+    <div class="content">
+      <main class="" role="main"> -->
+        <?php include roots_template_path(); ?>
+<!--       </main>
+    </div>
+  </div> -->
 
-  <?php include roots_template_path(); ?>
 
 <?php /*
   <div class="wrap" role="document">

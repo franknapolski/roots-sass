@@ -1,5 +1,5 @@
 <?php $class = get_body_class(); ?>
-<header class="banner navbar navbar-default <?php if ($class[0]=='blog' || $class[0]=='single'): echo "navbar-fixed-top"; else: echo "navbar-static"; endif; ?>" role="banner">
+<header class="banner navbar navbar-default <?php if ($class[0]!='home'): echo "navbar-fixed-top"; else: echo "navbar-static"; endif; ?>" role="banner">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">

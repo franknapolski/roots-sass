@@ -1,0 +1,269 @@
+//Home Section Styles
+//-----------------------
+#home {
+		z-index: 11;
+  height: 100%;
+		width: 100%;
+		padding: 0;
+  display: table;
+		background: rgba(0,0,0,0.7);
+
+	.intro {
+		width: 1145px;
+		z-index: 12;
+  display: table-cell;
+  vertical-align: bottom;
+
+  .relative {
+  	position: relative;
+			top: -10px;
+  }
+
+		.logo {
+			position: relative;
+			top: -118px;
+			left: -5px;
+			float: right;
+			width: 430px;
+		}
+
+		.intro-text {
+			width: 600px;
+		}
+	}
+
+ h3 {
+ 	font-size: 32px;
+		color: $brand-primary;
+ }
+
+ p {
+ 	font-size: ($font-size-h3 / 1.5);
+ 	font-weight: lighter;
+ 	color: #fff;
+ }
+
+}
+
+//Section Styles
+//-----------------------
+section {
+	background: #fff;
+	img {
+		width: 100%;
+
+		&.avatar,
+		&.ajax-loader {
+			width: auto;
+		}
+	}
+
+	&#home .container,
+	&#join-contact .container,
+	&#blog .container {
+		border-bottom: 0;
+	}
+	&#blog {
+		margin-top: 100px;
+	}
+	.container {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+		border-bottom: 2px solid $gray-lighter;
+	}
+	// &#grant-amherst-mural {
+	// 	background-image: url('../img/bg-2.jpg');
+	// 	background-size: cover;
+	// 	background-attachment: fixed;
+	// 	z-index: -1;
+	// }
+}
+
+//Member Section Styles
+//-----------------------
+#core-members {
+	.row {
+		.row {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.member {
+  padding-bottom: 1em;
+	  &:after {
+			  clear: both;
+			}
+			strong {
+				color: #000;
+			}
+			h4 {
+				margin-top: 0;
+			}
+	}
+}
+
+
+@media screen and (max-width: $screen-lg) {
+	#home {
+		.intro {
+			width: 940px;
+		}
+	}
+
+	.navbar {
+			&.navbar-fixed-top .navbar-nav > li {
+				padding-left: 17.5px;
+				padding-right: 17.5px;
+			}
+			&.navbar-static .navbar-nav > li {
+				padding-left: 0;
+				padding-right: 59px;
+				&:last-child {
+					padding-right: 0;
+				}
+			}
+		}
+}
+
+@media screen and (max-width: $screen-md) {
+	#home .intro {
+		width: 720px;
+		vertical-align: middle;
+
+		.relative {
+			top: -50px;
+		}
+		h3 {
+			font-size: 40px;
+		}
+		p {
+			font-size: 24px;
+		}
+		.intro-text {
+			width: 100%;
+		}
+		.logo {
+			// width: 380px;
+			margin-top: 120px;
+			float: right;
+			position: static;
+		}
+	}
+
+	.navbar {
+		.navbar-nav > li {
+			font-size: $font-size-base / 1.2;
+		}
+
+		&.navbar-fixed-top .navbar-nav > li {
+			padding: 17.5px 10px;
+		}
+
+		&.navbar-static .navbar-nav > li {
+			padding-left: 0;
+			padding-right: 43px;
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $screen-sm){
+	#home .intro {
+		width: 90%;
+		vertical-align: middle;
+
+		.relative {
+			top: 5rem;
+		}
+
+		.intro-text {
+			width: 100%;
+			padding-top: 5%;
+
+			h3 {
+				font-size: 24px;
+			}
+
+			p {
+				font-size: 16px;
+			}
+		}
+
+		.logo {
+			width: 100%;
+			margin-top: 0;
+			position: absolute;
+			top: -20rem;
+		}
+		.btn {
+			display: block;
+		 margin: 5rem auto 0;
+		}
+	}
+	h2 {
+		margin: 0 0 1rem 0;
+	}
+	h3 {
+		margin: 0 0 1rem 0;
+	}
+	.navbar {
+		.navbar-collapse {
+			border-top: 0;
+			box-shadow: none;
+		}
+		&.navbar-fixed-top {
+			.navbar-brand {
+				display: none;
+				width: 63px;
+				float: none;
+				padding: 0;
+			}
+			& .navbar-nav {
+				float: none;
+				> li {
+					padding: 0;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: $screen-xs) {
+	#home .intro {
+		width: 90%;
+		vertical-align: middle;
+
+		.relative {
+			top: 5rem;
+		}
+
+		.intro-text {
+			width: 100%;
+			// padding-top: 5rem;
+
+			h3 {
+				font-size: 18px;
+			}
+
+			p {
+				display: none;
+			}
+		}
+
+		.logo {
+			width: 100%;
+			margin-top: 0;
+			position: absolute;
+			top: -10rem;
+		}
+		.btn {
+
+		}
+	}
+	.content-info {
+		padding: 1rem 0;
+	}
+}

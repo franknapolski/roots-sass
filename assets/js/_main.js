@@ -32,6 +32,8 @@ var Roots = {
   // Home page
   home: {
     init: function() {
+
+      $('#home .intro, #carousel').hide();
       // JavaScript to be fired on the home page
 
       //Does URL contain hash
@@ -70,11 +72,14 @@ var Roots = {
         if ( $(this).scrollTop() >= homeHeight ) {
           $('.navbar').addClass('navbar-fixed-top').removeClass('navbar-static');
         }
+        $('#home .intro, #carousel').fadeIn(2000);
+
       });
 
       //On resize, check isWindowSmall
       $(window).resize(function(){
         small = isWindowSmall($(this).width());
+        homeHeight = $('#home').outerHeight()-50;
       });
 
       //Affix navbar, or don't if window is small
@@ -138,7 +143,7 @@ var Roots = {
           $(this).attr('href',href);
         }
         else {
-          $(this).attr('href',root+'/elab-wp/'+href);
+          $(this).attr('href',root+href);
         }
 
       });
